@@ -949,7 +949,7 @@ async def on_ready():
 
 	# 디스코드에는 현재 본인이 어떤 게임을 플레이하는지 보여주는 기능이 있습니다.
 	# 이 기능을 사용하여 봇의 상태를 간단하게 출력해줄 수 있습니다.
-	await client.change_presence(status=discord.Status.oline, activity=discord.Game('V4'), afk=False)
+	await client.change_presence(status=discord.Status.oline, activity=discord.Game(name='V4', type=0), afk=False)
 
 while True:
 	################ 보탐봇 입장 ################ 	
