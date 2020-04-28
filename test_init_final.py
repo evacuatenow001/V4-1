@@ -609,9 +609,9 @@ async def task():
 								bossFlag0[i] = False
 								bossMungFlag[i] = False
 								bossMungCnt[i] = 0
-								await client.get_channel(channel).send('```자동 멍처리 횟수 ' + basicSetting[17] + '회 초과! [' + bossData[i][0] + '] 삭제!```', tts=False)
+								await client.get_channel(channel).send('```자동 미입력 횟수 ' + basicSetting[17] + '회 초과! [' + bossData[i][0] + '] 삭제!```', tts=False)
 								#await dbSave()
-								print ('자동멍처리 횟수초과 <' + bossData[i][0] + ' 삭제완료>')
+								print ('자동 미입력 횟수초과 <' + bossData[i][0] + ' 삭제완료>')
 							else:
 								################ 미입력 보스 ################
 								if bossData[i][2] == '0':
@@ -638,7 +638,7 @@ async def task():
 									tmp_bossTime[i] = bossTime[i] = nextTime = tmp_bossTime[i]+datetime.timedelta(hours=int(bossData[i][1]), minutes=int(bossData[i][5]))
 									tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 									tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
-									await client.get_channel(channel).send("```" + bossData[i][0] + ' 멍 입니다.```')
+									await client.get_channel(channel).send("```" + bossData[i][0] + ' 미입력 됐습니다.```')
 									embed = discord.Embed(
 										description= '```다음 ' + bossData[i][0] + ' ' + bossTimeString[i] + '입니다.```',
 										color=0xff0000
@@ -949,7 +949,7 @@ async def on_ready():
 
 	# 디스코드에는 현재 본인이 어떤 게임을 플레이하는지 보여주는 기능이 있습니다.
 	# 이 기능을 사용하여 봇의 상태를 간단하게 출력해줄 수 있습니다.
-	await client.change_presence(status=discord.Status.dnd, activity=discord.Game(name=command[1][0], type=1), afk=False)
+	await client.change_presence(status=discord.Status.oline, activity=discord.Game(name=command[1][0], type=1), afk=False)
 
 while True:
 	################ 보탐봇 입장 ################ 	
@@ -1809,7 +1809,7 @@ while True:
 							if ouput_bossData[i][5] == 0 :
 								boss_information[cnt] = boss_information[cnt] + ouput_bossData[i][3] + ' ' + ouput_bossData[i][2] + ' : ' + ouput_bossData[i][0] + ' ' + ouput_bossData[i][6] + '\n'
 							else :
-								boss_information[cnt] = boss_information[cnt] + ouput_bossData[i][3] + ' ' + ouput_bossData[i][2] + ' : ' + ouput_bossData[i][0] + ' (멍 ' + str(ouput_bossData[i][5]) + '회)' + ' ' + ouput_bossData[i][6] + '\n'
+								boss_information[cnt] = boss_information[cnt] + ouput_bossData[i][3] + ' ' + ouput_bossData[i][2] + ' : ' + ouput_bossData[i][0] + ' (미입력 ' + str(ouput_bossData[i][5]) + '회)' + ' ' + ouput_bossData[i][6] + '\n'
 
 			if len(boss_information) == 1 and len(tmp_boss_information) == 1:
 				###########################
@@ -1979,32 +1979,7 @@ while True:
 							if ouput_bossData[i][5] == 0 :
 								boss_information[cnt] = boss_information[cnt] + ouput_bossData[i][3] + ' ' + ouput_bossData[i][2] + ' : ' + ouput_bossData[i][0] + ' ' + ouput_bossData[i][6] + '\n'
 							else :
-								boss_information[cnt] = boss_information[cnt] + ouput_bossData[i][3] + ' ' + ouput_bossData[i][2] + ' : ' + ouput_bossData[i][0] + ' (멍 ' + str(ouput_bossData[i][5]) + '회)' + ' ' + ouput_bossData[i][6] + '\n'
-
-			###########################고정보스출력
-			if len(fixedboss_information[0]) != 0:
-				fixedboss_information[0] = "```diff\n" + fixedboss_information[0] + "\n```"
-			else :
-				fixedboss_information[0] = '``` ```'
-	
-			embed = discord.Embed(
-					title = "----- 고 정 보 스 -----",
-					description= fixedboss_information[0],
-					color=0x0000ff
-					)
-			await ctx.send( embed=embed, tts=False)
-			for i in range(len(fixedboss_information)-1):
-				if len(fixedboss_information[i+1]) != 0:
-					fixedboss_information[i+1] = "```diff\n" + fixedboss_information[i+1] + "\n```"
-				else :
-					fixedboss_information[i+1] = '``` ```'
-
-				embed = discord.Embed(
-						title = '',
-						description= fixedboss_information[i+1],
-						color=0x0000ff
-						)
-				await ctx.send( embed=embed, tts=False)
+								boss_information[cnt] = boss_information[cnt] + ouput_bossData[i][3] + ' ' + ouput_bossData[i][2] + ' : ' + ouput_bossData[i][0] + ' (미입력 ' + str(ouput_bossData[i][5]) + '회)' + ' ' + ouput_bossData[i][6] + '\n'
 
 			###########################일반보스출력
 			if len(boss_information[0]) != 0:
