@@ -1358,7 +1358,7 @@ while True:
 			await kill_list_Save()
 			await voice_client1.disconnect()
 			#await FixedBossDateSave()
-			await client.get_channel(channel).send('<보탐봇 재시작 중... 5분동안 아무 것도 치지마세요! 긴급메뉴얼은 정보방에>', tts=False)
+			await ctx.send('<보탐봇 재시작 중... 5분동안 아무 것도 치지마세요! 긴급메뉴얼은 정보방에>', tts=False)
 			print("보탐봇강제재시작!")
 			await asyncio.sleep(2)
 
