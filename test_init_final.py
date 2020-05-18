@@ -494,7 +494,7 @@ async def task():
 				await dbSave()
 				await FixedBossDateSave()
 				await kill_list_Save()
-				await client.get_channel(channel).send('<정기적 재시작 타임! 작동이 5분동안 멈춥니다. 채팅 멈춰주세요>', tts=False)
+				await client.get_channel(channel).send('<봇 정기점검 중! 작동이 5분동안 멈춥니다. 채팅을 멈춰주세요>', tts=False)
 				print("보탐봇재시작!")
 				endTime = endTime + datetime.timedelta(days = int(basicSetting[13]))
 				await voice_client1.disconnect()
@@ -1358,7 +1358,7 @@ while True:
 			await kill_list_Save()
 			await voice_client1.disconnect()
 			#await FixedBossDateSave()
-			await client.get_channel(channel).send('<보탐봇 재시작 중... 5분동안 아무 것도 치지마세요!>', tts=False)
+			await client.get_channel(channel).send('<보탐봇 재시작 중... 5분동안 아무 것도 치지마세요! 긴급메뉴얼은 정보방에>', tts=False)
 			print("보탐봇강제재시작!")
 			await asyncio.sleep(2)
 
