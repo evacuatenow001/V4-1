@@ -1901,7 +1901,7 @@ while True:
 						description= boss_information[0],
 						color=0x0000ff
 						)
-				embed.add_field(
+				#embed.add_field(
 						name="----- 미예약 보스 -----",
 						value= tmp_boss_information[0],
 						inline = False
