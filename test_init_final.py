@@ -1902,11 +1902,11 @@ while True:
 						color=0x0000ff
 						)
 				#embed.add_field(
-						name="----- 미예약 보스 -----",
-						value= tmp_boss_information[0],
-						inline = False
-						)				
-				await ctx.send( embed=embed, tts=False)
+						#name="----- 미예약 보스 -----",
+						#value= tmp_boss_information[0],
+						#inline = False
+						#)				
+				#await ctx.send( embed=embed, tts=False)
 			else : 
 				###########################일반보스출력
 				if len(boss_information[0]) != 0:
