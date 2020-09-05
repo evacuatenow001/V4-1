@@ -3220,7 +3220,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 								minutes1 = hello[chkpos:chkpos+2]
 								now2 = datetime.datetime.now() + datetime.timedelta(hours = int(basicSetting[0]))
 								tmp_now = datetime.datetime.now() + datetime.timedelta(hours = int(basicSetting[0]))
-								tmp_now = tmp_now.replace(hour=int(hours1), minute=int(minutes1))
+								tmp_now = datetime.datetime.now() + tmp_now.replace(hour=int(hours1), minute=int(minutes1))
 							
 							bossFlag[i] = False
 							bossFlag0[i] = False
@@ -3230,7 +3230,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 							if tmp_now < now2 :
 								tmp_now = tmp_now + datetime.timedelta(days=int(1))
 
-							tmp_bossTime[i] = bossTime[i] = nextTime = datetime.datetime.now() + datetime.timedelta(hour= int(chkpos), minute=int(chkpos))
+							tmp_bossTime[i] = bossTime[i] = nextTime = tmp_now
 							tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 							tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
 							embed = discord.Embed(
