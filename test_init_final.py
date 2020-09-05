@@ -3230,7 +3230,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 							if tmp_now < now2 :
 								tmp_now = tmp_now + datetime.timedelta(days=int(1))
 
-							tmp_bossTime[i] = bossTime[i] = nextTime = datetime.datetime.now() + tmp_now
+							tmp_bossTime[i] = bossTime[i] = nextTime = datetime.now() + tmp_now
 							tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 							tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
 							embed = discord.Embed(
