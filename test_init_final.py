@@ -2029,7 +2029,7 @@ class mainCog(commands.Cog):
 								hours, remainder = divmod(total_seconds,60*60)
 								minutes, seconds = divmod(remainder,60)
 
-								result_lefttime += '다음 ' + ouput_bossData[i][0] + '탐까지 %02d:%02d:%02d 남았습니다. ' % (hours,minutes,seconds) + '[' +  ouput_bossData[i][2] + ']\n'
+								result_lefttime += '다음 ' + ouput_bossData[i][0] + ' 까지 %02d:%02d:%02d 남았습니다. ' % (hours,minutes,seconds) + '[' +  ouput_bossData[i][2] + ']\n'
 				else :
 					for j in range(len(sorted_datelist)):
 						for i in range(len(ouput_bossData)):						
@@ -2040,7 +2040,7 @@ class mainCog(commands.Cog):
 								hours, remainder = divmod(total_seconds,60*60)
 								minutes, seconds = divmod(remainder,60)
 
-								result_lefttime += '다음 ' + ouput_bossData[i][0] + '탐까지 %02d:%02d:%02d 남았습니다. ' % (hours,minutes,seconds) + '[' +  ouput_bossData[i][2] + ']\n'
+								result_lefttime += '다음 ' + ouput_bossData[i][0] + ' 까지 %02d:%02d:%02d 남았습니다. ' % (hours,minutes,seconds) + '[' +  ouput_bossData[i][2] + ']\n'
 				embed = discord.Embed(
 					description= result_lefttime,
 					color=0xff0000
@@ -2233,12 +2233,7 @@ class mainCog(commands.Cog):
 						title = "----- 보스탐 정보 -----",
 						description= boss_information[0],
 						color=0x0000ff
-						)
-				embed.add_field(
-						name="----- 미예약 보스 -----",
-						value= tmp_boss_information[0],
-						inline = False
-						)				
+						)		
 				await ctx.send( embed=embed, tts=False)
 			else : 
 				###########################일반보스출력
@@ -2265,37 +2260,7 @@ class mainCog(commands.Cog):
 							color=0x0000ff
 							)
 					await ctx.send( embed=embed, tts=False)
-				###########################미예약보스출력
-				if len(tmp_boss_information[0]) != 0:
-					if len(tmp_boss_information) == 1 :
-						tmp_boss_information[0] = "```fix\n" + tmp_boss_information[0][:len(tmp_boss_information[0])-1] + "\n```"
-					else:
-						tmp_boss_information[0] = "```fix\n" + tmp_boss_information[0] + "\n```"
-				else :
-					tmp_boss_information[0] = '``` ```'
-
-				embed = discord.Embed(
-					title = "----- 미예약 보스 -----",
-					description= tmp_boss_information[0],
-					color=0x0000ff
-					)
-				await ctx.send( embed=embed, tts=False)
-				for i in range(len(tmp_boss_information)-1):
-					if len(tmp_boss_information[i+1]) != 0:
-						if i == len(tmp_boss_information)-2:
-							tmp_boss_information[i+1] = "```fix\n" + tmp_boss_information[i+1][:len(tmp_boss_information[i+1])-1] + "\n```"
-						else:
-							tmp_boss_information[i+1] = "```fix\n" + tmp_boss_information[i+1] + "\n```"							
-					else :
-						tmp_boss_information[i+1] = '``` ```'
-
-					embed = discord.Embed(
-							title = '',
-							description= tmp_boss_information[i+1],
-							color=0x0000ff
-							)
-					await ctx.send( embed=embed, tts=False)
-
+				
 			await dbSave()
 			await data_list_Save("kill_list.ini", "-----척살명단-----", kill_Data)
 			await data_list_Save("item_list.ini", "-----아이템목록-----", item_Data)
@@ -3299,7 +3264,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 
 		# 디스코드에는 현재 본인이 어떤 게임을 플레이하는지 보여주는 기능이 있습니다.
 		# 이 기능을 사용하여 봇의 상태를 간단하게 출력해줄 수 있습니다.
-		await self.change_presence(status=discord.Status.dnd, activity=discord.Game(name=command[1][0], type=1), afk=False)
+		await self.change_presence(status=discord.Status.dnd, activity=discord.Game(name='v4', type=1), afk=False)
 
 	async def on_message(self, msg):
 		await self.wait_until_ready()
