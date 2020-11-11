@@ -2233,11 +2233,6 @@ class mainCog(commands.Cog):
 						title = "----- 보스탐 정보 -----",
 						description= boss_information[0],
 						color=0x0000ff
-						)
-				embed.add_field(
-						name="----- 미예약 보스 -----",
-						value= tmp_boss_information[0],
-						inline = False
 						)				
 				await ctx.send( embed=embed, tts=False)
 			else : 
