@@ -2154,7 +2154,7 @@ class mainCog(commands.Cog):
 					datelist2.append(bossTime[i])
 
 			for i in range(fixed_bossNum):
-				if fixed_bossTime[i] < datetime.datetime.now() + datetime.timedelta(hours=int(basicSetting[0])+3):
+				if fixed_bossTime[i] < datetime.datetime.now() + datetime.timedelta(hours=int(basicSetting[0])+8):
 					datelist2.append(fixed_bossTime[i])
 
 			datelist = list(set(datelist2))
